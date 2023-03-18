@@ -30,6 +30,8 @@ CLASS_DIR = $(SRC_DIR)class
 
 MAIN_DIR = $(SRC_DIR)main
 
+OBJ_DIR = obj/
+
 #_____________________________#
 #|__________Files____________|#
 
@@ -37,16 +39,26 @@ MAIN_FILES = main.cpp
 
 CLASS_FILES = PhoneBook.class.cpp
 
+SRC_FILES = $(MAIN_FILES) $(CLASS_FILES)
+
+OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_DIR)%.o)
+
 #_____________________________#
-#|___________________________|#
+#|__________Targets__________|#
 
-all : NAME
+all : $(NAME)
 
-NAME :
-	$(CC) $(FLAGS) $(SRC) -o $(NAME)
+$(NAME) : $(OBJ_FILES)
+
+
+$(OBJ_FILES)%.o : $(SRC_FILES)%.cpp | $(OBJ_DIR)
+	$(CC) $(FLAGS) -I$(INC_DIR) -c $< -o $@
+
+$(OBJ_DIR) :
+	mkdir $(OBJ_DIR)
 
 clean :
-	@echo Nothing to be done
+	rm -rf $(OBJ_DIR)
 	
 fclean :
-	rm $(NAME)
+	rm -f $(NAME)

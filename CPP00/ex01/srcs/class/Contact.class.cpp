@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 22:32:42 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/18 02:04:09 by jbernard         ###   ########.fr       */
+/*   Created: 2023/03/18 01:48:42 by jbernard          #+#    #+#             */
+/*   Updated: 2023/03/18 02:32:43 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-#define PHONEBOOK_CLASS_HPP
+#include "Contact.class.hpp"
 
-#include <iostream>
+Contact::Contact( void ) {
+	return;
+}
 
-class PhoneBook{
-
-public:
-
-	PhoneBook( void );
-	~PhoneBook( void );
-};
-
-#endif
+Contact::~Contact( void ) {
+	return;
+}
