@@ -6,11 +6,11 @@
 #    By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 02:08:52 by jbernard          #+#    #+#              #
-#    Updated: 2023/03/15 00:22:43 by jbernard         ###   ########.fr        #
+#    Updated: 2023/03/18 05:53:50 by jbernard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = Phonebook
 
 #_____________________________#
 #|________Compilation________|#
@@ -37,21 +37,24 @@ OBJ_DIR = obj/
 
 MAIN_FILES = main.cpp
 
-CLASS_FILES = PhoneBook.class.cpp
+CLASS_FILES = PhoneBook.class.cpp \
+				Contact.class.cpp
 
-SRC_FILES = $(MAIN_FILES) $(CLASS_FILES)
+OBJ_FILES = $(MAIN_FILES:%.cpp=$(OBJ_DIR)%.o) \
+			$(CLASS_FILES:%.cpp=$(OBJ_DIR)%.o)
 
-OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_DIR)%.o)
-
+VPATH = $(SRC_DIR) $(CLASS_DIR) $(MAIN_DIR)
+ 
 #_____________________________#
 #|__________Targets__________|#
+
 
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILES)
+	$(CC) $(FLAGS) -I$(INC_DIR) $^ -o $@
 
-
-$(OBJ_FILES)%.o : $(SRC_FILES)%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR)
 	$(CC) $(FLAGS) -I$(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR) :
@@ -60,5 +63,7 @@ $(OBJ_DIR) :
 clean :
 	rm -rf $(OBJ_DIR)
 	
-fclean :
+fclean : clean
 	rm -f $(NAME)
+
+re : fclean all

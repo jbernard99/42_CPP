@@ -6,19 +6,20 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 23:39:03 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/15 00:10:57 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/18 04:09:37 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include <iostream>
+#include "../../includes/PhoneBook.class.hpp"
 
 PhoneBook::PhoneBook( void ) {
-	std::cout << "Constructor Called!" << std::endl;
+	std::cout << "Constructor PhoneBook Called!" << std::endl;
 	return;
 }
 
 PhoneBook::~PhoneBook( void ) {
-	std::cout << "Destructor Called!" << std::endl;
+	std::cout << "Destructor PhoneBook Called!" << std::endl;
 	return;
 }
 
