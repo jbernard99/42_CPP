@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:48:42 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/20 15:49:18 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:51:39 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,3 @@ void Contact::_formatColumn(std::string str)
 		std::cout << "| ";
 	}
 }
-
-/*
-			std::cout << "| " << i - 1 << " | ";
-			std::cout << _repertoire[i - 1]->getFirstName().substr(0, 6);
-			if ( _repertoire[i - 1]->getFirstName().size() >= 7)
-				std::cout << ". | ";
-			else
-			{
-				for (int x =  _repertoire[i - 1]->getFirstName().size(); x <= 7; x++)
-					std::cout << ' ';
-				std::cout << "| ";
-			}
-*/
