@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 02:03:08 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/19 22:36:15 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:06:38 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Contact{
 
 public:
 
+	void showInfos(int i);
 	void setFirstName(std::string first_name);
 	void setLastName(std::string last_name);
 	void setNickname(std::string nickname);
@@ -38,6 +39,10 @@ public:
 
 	Contact(std::string info[5]);
 	~Contact(void);
+
+private:
+
+	void _formatColumn(std::string str);
 
 };
 

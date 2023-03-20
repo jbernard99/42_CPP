@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 21:39:40 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/19 22:36:13 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:46:16 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,28 @@ std::string* gatherContactInfo(void){
 	return ((std::string*)info);
 }
 
-Contact getNewContact(void){
-	std::string* info = gatherContactInfo();
-	Contact newContact(info);
-	delete[] info;
-	return (newContact);
+void show_contacts(PhoneBook pb){
+	for (int i = 0; i <= 7; i++){
+		if (i < pb.getNbContact())
+			pb.searchByIndex(i).showInfos(i);
+	}
+}
+
+int	validate_s_index(std::string s_index){
+	int i;
+	if (s_index.length() == 1){
+		i = s_index[0] - 48;
+		if (i >= 0 && i <= 7)
+			return (i);
+		else {
+			std::cout << "Oops! The digit must be between 0 and 7.. Try again ^_^" << std::endl;
+			return (-1);
+		}
+	} 
+	else {
+		std::cout << "Sowwwy your input must be 1 char long ONLY. NO MORE, NO LESS >:(" << std::endl;
+		return (-1);
+	}
 }
 
 int main(void){
@@ -43,10 +60,17 @@ int main(void){
 	while (1){
 		std::cin >> command;
 		if (command == "ADD"){
-			myPhoneBook.addContact(getNewContact());
+			std::string* info = gatherContactInfo();
+			myPhoneBook.addContact(info);
+			delete[] info;
 		}
 		else if (command == "SEARCH"){
-			std::cout << "Search command triggered!" << std::endl;
+			show_contacts(myPhoneBook);
+			std::string	s_index;
+			std::cout << "What is the index of the contact you are searching for??" << std::endl;
+			std::cin >> s_index;
+			int	i = validate_s_index(s_index);
+			(void)i;
 		}
 		else if (command == "EXIT") {
 			exit(0);

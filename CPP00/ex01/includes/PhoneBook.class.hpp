@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 22:32:42 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/19 22:36:15 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:38:08 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 
 class PhoneBook{
 
-	Contact			*contacts[8];
 	unsigned int	nb_contact;
+	Contact			*contacts[8];
 
 public:
 
-	void addContact(Contact newContact);
+	void 		addContact(std::string info[5]);
+	Contact		searchByIndex(int i);
+	int			getNbContact(void);
 
 	PhoneBook(void);
 	~PhoneBook(void);
