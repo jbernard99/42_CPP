@@ -6,7 +6,7 @@
 #    By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 02:08:52 by jbernard          #+#    #+#              #
-#    Updated: 2023/03/18 05:53:50 by jbernard         ###   ########.fr        #
+#    Updated: 2023/03/19 22:36:13 by jbernard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ VPATH = $(SRC_DIR) $(CLASS_DIR) $(MAIN_DIR)
 #|__________Targets__________|#
 
 
-all : $(NAME)
+all : $(OBJ_DIR) $(NAME)
 
 $(NAME) : $(OBJ_FILES)
 	$(CC) $(FLAGS) -I$(INC_DIR) $^ -o $@
