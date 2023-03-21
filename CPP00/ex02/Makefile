@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/14 02:08:52 by jbernard          #+#    #+#              #
-#    Updated: 2023/03/20 16:37:20 by jbernard         ###   ########.fr        #
+#    Created: 2023/03/21 13:54:13 by jbernard          #+#    #+#              #
+#    Updated: 2023/03/21 13:54:49 by jbernard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Phonebook
+NAME = BankAccount
 
 #_____________________________#
 #|________Compilation________|#
@@ -35,10 +35,9 @@ OBJ_DIR = obj/
 #_____________________________#
 #|__________Files____________|#
 
-MAIN_FILES = main.cpp
+MAIN_FILES = tests.cpp
 
-CLASS_FILES = PhoneBook.class.cpp \
-				Contact.class.cpp
+CLASS_FILES = Account.cpp
 
 OBJ_FILES = $(MAIN_FILES:%.cpp=$(OBJ_DIR)%.o) \
 			$(CLASS_FILES:%.cpp=$(OBJ_DIR)%.o)

@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:48:42 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/20 15:51:39 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:35:40 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,24 @@ Contact::Contact(std::string info[5])
 	return;
 }
 
-void Contact::showInfos(int i)
+void Contact::showBaseInfos(int i)
 {
 	std::cout << "| " << i  << " | ";
 	_formatColumn(this->first_name);
 	_formatColumn(this->last_name);
 	_formatColumn(this->nickname);
 	std::cout << std::endl;
+}
+
+void Contact::showFullInfos(int i)
+{
+	std::cout << "_____________" << "Contact #" << i << "______________" << std::endl;
+	std::cout << "| FIRST NAME:  " << first_name << std::endl;
+	std::cout << "| LAST NAME:  " << last_name << std::endl;
+	std::cout << "| NICKNAME:  " << nickname << std::endl;
+	std::cout << "| PHONE #:  " << phone_number << std::endl;
+	std::cout << "| DARKEST SECRET:  " << darkest_secret << std::endl;
+	std::cout << "|____________________________________" << std::endl;
 }
 
 void Contact::setFirstName(std::string first_name)

@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 21:39:40 by jbernard          #+#    #+#             */
-/*   Updated: 2023/03/20 16:09:46 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:38:41 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,20 @@ std::string* gatherContactInfo(void){
 	return ((std::string*)info);
 }
 
-void show_contacts(PhoneBook pb){
-	for (int i = 0; i <= 7; i++){
-		if (i < pb.getNbContact())
-			pb.searchByIndex(i).showInfos(i);
-	}
-}
-
-int	validate_s_index(std::string s_index){
-	int i;
+int	validate_s_index(std::string s_index, unsigned int nb_contact){
+	unsigned int i;
 	if (s_index.length() == 1){
 		i = s_index[0] - 48;
-		if (i >= 0 && i <= 7)
-			return (i);
+		if (i < nb_contact){
+			if (i >= 0 && i <= 7)
+				return (i);
+			else{
+				std::cout << "Oops! The digit must be between 0 and 7.. Try again ^_^" << std::endl;
+				return (-1);
+			}
+		}
 		else {
-			std::cout << "Oops! The digit must be between 0 and 7.. Try again ^_^" << std::endl;
+			std::cout << "Oops! There isn't enough contacts for that..! Try again ^_^" << std::endl;
 			return (-1);
 		}
 	} 
@@ -65,12 +64,13 @@ int main(void){
 			delete[] info;
 		}
 		else if (command == "SEARCH"){
-			show_contacts(myPhoneBook);
+			myPhoneBook.print_contacts();
 			std::string	s_index;
 			std::cout << "What is the index of the contact you are searching for??" << std::endl;
 			std::cin >> s_index;
-			int	i = validate_s_index(s_index);
-			(void)i;
+			int	i = validate_s_index(s_index, myPhoneBook.getNbContact());
+			if (i >= 0)
+				myPhoneBook.searchByIndex(i).showFullInfos(i);
 		}
 		else if (command == "EXIT") {
 			exit(0);
