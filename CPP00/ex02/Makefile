@@ -6,7 +6,7 @@
 #    By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 13:54:13 by jbernard          #+#    #+#              #
-#    Updated: 2023/04/11 15:31:07 by jbernard         ###   ########.fr        #
+#    Updated: 2023/04/12 12:54:55 by jbernard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = BankAccount
 
 CC = g++
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra  -std=c++98
 
 #_____________________________#
 #|_______Directories_________|#

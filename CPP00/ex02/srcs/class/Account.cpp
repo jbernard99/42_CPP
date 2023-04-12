@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:13:46 by jbernard          #+#    #+#             */
-/*   Updated: 2023/04/11 15:33:15 by jbernard         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:59:25 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 #include <iostream>
 #include <ctime>
 
-static void _displayTimestamp(void)
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
+void Account::_displayTimestamp(void)
 {
 	time_t	t = time(NULL);
 	tm		*lt = std::localtime(&t);
@@ -50,7 +55,7 @@ bool Account::makeWithdrawal(int withdrawal)
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";p_amount:" <<
 		_amount << ";withdrawal:";
-	if (withdrawal >= _amount){
+	if (withdrawal <= _amount){
 		_amount -= withdrawal;
 		_totalAmount -= withdrawal;
 		_nbWithdrawals++;
@@ -130,7 +135,7 @@ Account::~Account(void)
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" <<
-		_amount << ";closed";
+		_amount << ";closed" << std::endl;
 	_totalAmount -= _amount;
 	_totalNbDeposits -= _nbDeposits;
 	_totalNbWithdrawals -= _nbWithdrawals;
